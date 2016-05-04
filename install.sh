@@ -10,6 +10,7 @@ curl -fsLo ~/.config/nvim/init.vim https://raw.githubusercontent.com/4679/nvim-c
 nvim +PlugInstall
 
 sed -i '/colorscheme/s/^" //' ~/.config/nvim/init.vim
+sed -i '/autocmd/s/^" //' ~/.config/nvim/init.vim
 
 read -p "是否安装了Powerline字体?[y/n]:" is
 

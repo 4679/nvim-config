@@ -1,8 +1,9 @@
 " Vim-Plug
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'romainl/flattened'
+Plug 'tomasr/molokai'
 Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'luochen1990/rainbow'
 Plug 'godlygeek/tabular'
 Plug 'Raimondi/delimitMate'
@@ -10,10 +11,10 @@ Plug 'plasticboy/vim-markdown'
 
 call plug#end()  
 
-" Solarized
+" Molokai
 syntax on
-set bg=dark
-" colorscheme flattened_dark
+" colorscheme molokai
+" autocmd VimEnter * AirlineTheme molokai
 
 " Airline
 " let g:airline_powerline_fonts = 1
@@ -25,8 +26,8 @@ set fileformats=unix,dos
 set nowrap
 set nobackup
 set nu
-set ts=4
-set sw=4
+set ts=2
+set sw=2
 set expandtab
 set autoindent
 set pastetoggle=<f3>
