@@ -4,9 +4,6 @@
 # 截图
 ![1](https://raw.githubusercontent.com/4679/nvim-config/master/screenshots/1.png)
 
-
-![2](https://raw.githubusercontent.com/4679/nvim-config/master/screenshots/2.png)
-
 # 安装
 ```bash
 sh -c "$(curl -fsSL https://git.io/vwRKI)"

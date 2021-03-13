@@ -1,34 +1,41 @@
-" Vim-Plug
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin()
 
-Plug 'tomasr/molokai'
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'luochen1990/rainbow'
+Plug 'arcticicestudio/nord-vim'
+Plug 'vim-airline/vim-airline'
 Plug 'godlygeek/tabular'
-Plug 'Raimondi/delimitMate'
+Plug 'luochen1990/rainbow'
 Plug 'plasticboy/vim-markdown'
+Plug 'Raimondi/delimitMate'
+Plug 'edkolev/promptline.vim'
+Plug 'farmergreg/vim-lastplace'
+Plug 'cespare/vim-toml'
 
-call plug#end()  
+call plug#end()
 
-" Molokai
-syntax on
-" colorscheme molokai
-" autocmd VimEnter * AirlineTheme molokai
-
-" Airline
+" Color scheme
+silent! colorscheme nord
+let g:airline_theme='nord'
 " let g:airline_powerline_fonts = 1
 
 " Others
-let g:rainbow_active = 1
-set laststatus=2
-set fileformats=unix,dos
+set number relativenumber
+set nu rnu
+set ts=4
+set sw=4
 set nowrap
-set nobackup
-set nu
-set ts=2
-set sw=2
+set mouse=a
+set hlsearch
 set expandtab
 set autoindent
+set ignorecase
 set pastetoggle=<f3>
 au FileType python let b:delimitMate_nesting_quotes = ['"']
+let g:rainbow_active = 1
+let g:promptline_theme = 'airline'
+let g:promptline_preset = {
+        \'a' : [ promptline#slices#user() ],
+        \'b' : [ promptline#slices#cwd() ],
+        \'y' : [ promptline#slices#git_status() ],
+        \'z' : [ promptline#slices#vcs_branch() ],
+        \'warn' : [ promptline#slices#last_exit_code() ]}
+command SW :execute ':silent w !sudo tee % > /dev/null' | :edit!
