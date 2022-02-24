@@ -1,24 +1,24 @@
 call plug#begin()
 
-Plug 'arcticicestudio/nord-vim'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'vim-airline/vim-airline'
-Plug 'godlygeek/tabular'
 Plug 'luochen1990/rainbow'
-Plug 'plasticboy/vim-markdown'
 Plug 'Raimondi/delimitMate'
-Plug 'edkolev/promptline.vim'
 Plug 'farmergreg/vim-lastplace'
-Plug 'cespare/vim-toml'
 
 call plug#end()
 
 " Color scheme
-silent! colorscheme nord
-let g:airline_theme='nord'
-" let g:airline_powerline_fonts = 1
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+silent! colorscheme onehalfdark
+let g:airline_theme='onehalfdark'
+"let g:airline_powerline_fonts = 1
 
 " Others
-set number relativenumber
 set nu rnu
 set ts=4
 set sw=4
@@ -29,13 +29,5 @@ set expandtab
 set autoindent
 set ignorecase
 set pastetoggle=<f3>
-au FileType python let b:delimitMate_nesting_quotes = ['"']
 let g:rainbow_active = 1
-let g:promptline_theme = 'airline'
-let g:promptline_preset = {
-        \'a' : [ promptline#slices#user() ],
-        \'b' : [ promptline#slices#cwd() ],
-        \'y' : [ promptline#slices#git_status() ],
-        \'z' : [ promptline#slices#vcs_branch() ],
-        \'warn' : [ promptline#slices#last_exit_code() ]}
 command SW :execute ':silent w !sudo tee % > /dev/null' | :edit!
